@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ACE in Action</title>
+<style type="text/css" media="screen">
+    #editor { 
+	position: relative;
+	width: 100%;
+	height: 200px;
+	border: 1px solid red;
+    }
+    #div_output {
+	position: relative;
+	width: 100%;
+	height: 200px;
+	border: 1px solid green;
+	}
+	input[type=button]{
+	color: white;
+	background-color: green;
+	margin: 5px;
+	padding: 5px;
+	border-radius: 3px;
+	}
+	#select_lang{
+	margin: 5px;
+	padding: 5px;
+	border-radius: 3px;
+	}
+</style>
+<style type="text/css" src="style.css"></style>
+<script src="scripts.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div style="width: 100%; text-align: center">
+Язык:
+<select id="select_lang" onchange="change_lang(this.value)">
+<option value="python">Python</option>
+<option value="javascript" selected>JavaScript</option>
+</select>
+
+
+<div id="editor">function foo(items) {
+    var x = "Test work for work";
+    return x;
+}
+
+foo();
+</div>
+
+<input type="button" value="Run" onclick="post_code()">
+<div id="div_output"></div>
+    
+<script src="https://ace.c9.io/build/src/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/javascript");
+</script>
+
+</div>
+</body>
+</html>
